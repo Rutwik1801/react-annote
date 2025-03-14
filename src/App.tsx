@@ -1,19 +1,14 @@
 import './App.css'
-
-import { AnnotationContainer } from "./components/AnnotationContainer"
-import { AnnotationsContextProvider } from './context/AnnotationsContextProvider'
+import { AnnotationWrapper } from './components/AnnotationWrapper'
 
 function App() {
-
   return (
     <div>
-      <AnnotationsContextProvider>
-    <AnnotationContainer>
+      <AnnotationWrapper>
       <div style={{height:"300px", width:"100%", backgroundColor:"red"}}>
         hlllooo
       </div>
-    </AnnotationContainer>
-      </AnnotationsContextProvider>
+      </AnnotationWrapper>
     </div>
   )
 }
