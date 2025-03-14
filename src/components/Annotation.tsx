@@ -15,10 +15,11 @@ export const Annotation = (props) => {
           style={{
             position: "absolute",
             top: 0,
+            zIndex: 2,
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "black",
+            backgroundColor: "rgba(0,0,0,0.3)",
           }}
         ></div>
       )}
@@ -28,13 +29,13 @@ export const Annotation = (props) => {
         <div
           style={{
             position: "absolute",
-            zIndex: 2,
+            zIndex: 3,
             top: annotationStartPoints?.[1],
             left: annotationStartPoints?.[0],
             height: `${annotationBox?.[1]}px`,
             width: `${annotationBox?.[0]}px`,
             border: "1px solid black",
-            backgroundColor: "rgba(0,0,0,0.1)",
+            // backgroundColor: "rgba(0,0,0,0.1)",
           }}
         ></div>
       )}

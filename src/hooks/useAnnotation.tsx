@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAnnotations } from "./useAnnotations";
 
 export const useAnnotation = () => {
     const [showOverlay, setShowOverlay] = useState(false);
@@ -7,6 +8,7 @@ export const useAnnotation = () => {
     const [annotationStartPoints, setAnnotationStartPoints] = useState(null);
     const [dragStart, setDragStart] = useState(false);
     const [text, setText] = useState("")
+    const { handleAddAnnotation } = useAnnotations();
 
     const handleMouseDown = (event) => {
       setShowOverlay(false)
@@ -31,6 +33,14 @@ export const useAnnotation = () => {
       setShowOverlay(true)
     };
     const handleBlur = () => {
+      if(text.length > 0) {
+        const annotationObject = {
+          text,
+          annotationStartPoints,
+          annotationBox,
+        }
+        handleAddAnnotation(annotationObject)
+      }
       setShowAnnotationCommentBox(false)
       setShowOverlay(false)
       setAnnotationStartPoints(null)
