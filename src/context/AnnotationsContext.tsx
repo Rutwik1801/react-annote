@@ -1,18 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext} from "react";
+import {AnnotationsContextType } from "../utils/types";
+import { useContext } from "react"
 
-export const AnnotationsContext = createContext({annotations: []});
+export const AnnotationsContext = createContext<AnnotationsContextType>({annotations: []} as AnnotationsContextType);
 
-export const AnnotationsContextProvider = (props) => {
-  const [annotations, setAnnotations] = useState([]);
-  const handleAddAnnotation = (annotationObject) => {
-    setAnnotations(prev => [...prev, annotationObject])
-  }
-
-  const value = {
-    annotations,
-    handleAddAnnotation
-  }
-  return (<AnnotationsContext.Provider value={value}>
-    {props.children}
-  </AnnotationsContext.Provider>)
+export const useAnnotations = () => {
+  return useContext(AnnotationsContext);
 }

@@ -1,8 +1,25 @@
+import { ReactNode } from "react";
 import { useAnnotation } from "../hooks/useAnnotation";
 import { CommentBox } from "./CommentBox";
 
-export const Annotation = (props) => {
- const {text, handleBlur,handleTextChange, handleMouseDown, handleMouseMove, handleMouseUp, showOverlay, dragStart, annotationBox, annotationStartPoints, showAnnotationCommentBox} = useAnnotation()
+interface AnnotationInterface {
+  children: ReactNode;
+}
+export const Annotation:React.FC<AnnotationInterface> = (props) => {
+ const {
+  text, 
+  handleBlur,
+  handleTextChange,
+  handleMouseDown,
+  handleMouseMove,
+  handleMouseUp,
+  showOverlay,
+  dragStart,
+  annotationBox,
+  annotationStartPoints,
+  showAnnotationCommentBox
+} = useAnnotation();
+
   return (
     <div
       onMouseDown={handleMouseDown}

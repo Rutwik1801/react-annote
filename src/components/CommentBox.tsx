@@ -1,5 +1,7 @@
+import React from "react"
+import { CommentBoxProps } from "../utils/types"
 
-export const CommentBox = ({handleBlur, handleTextChange, annotationStartPoints, annotationBox, text}) => {
+export const CommentBox:React.FC<CommentBoxProps> = ({handleBlur, handleTextChange, annotationStartPoints, annotationBox, text}) => {
 
   return (<div 
     tabIndex={0}
