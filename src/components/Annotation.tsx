@@ -5,59 +5,55 @@ import { CommentBox } from "./CommentBox";
 interface AnnotationInterface {
   children: ReactNode;
 }
-export const Annotation:React.FC<AnnotationInterface> = (props) => {
- const {
-  text, 
-  handleBlur,
-  handleTextChange,
-  handleMouseDown,
-  handleMouseMove,
-  handleMouseUp,
-  showOverlay,
-  dragStart,
-  annotationBox,
-  annotationStartPoints,
-  showAnnotationCommentBox
-} = useAnnotation();
+
+export const Annotation: React.FC<AnnotationInterface> = (props) => {
+  const {
+    text,
+    handleBlur,
+    handleTextChange,
+    handleMouseDown,
+    handleMouseMove,
+    handleMouseUp,
+    showOverlay,
+    dragStart,
+    annotationBox,
+    annotationStartPoints,
+    showAnnotationCommentBox,
+  } = useAnnotation();
 
   return (
     <div
+      className="annotation-container"
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
-      style={{ position: "relative", width: "100%", height: "100%" }}
     >
-      {showOverlay && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            zIndex: 2,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.3)",
-          }}
-        ></div>
-      )}
+      {showOverlay && <div className="annotation-overlay"></div>}
+
       {props.children}
 
       {dragStart && annotationBox && (
         <div
+          className="annotation-box"
           style={{
-            position: "absolute",
-            zIndex: 3,
             top: annotationStartPoints?.[1],
             left: annotationStartPoints?.[0],
             height: `${annotationBox?.[1]}px`,
             width: `${annotationBox?.[0]}px`,
-            border: "1px solid black",
-            // backgroundColor: "rgba(0,0,0,0.1)",
+            zIndex: 3
           }}
         ></div>
       )}
-      {showAnnotationCommentBox && <CommentBox text={text} handleBlur={handleBlur} handleTextChange={handleTextChange} annotationStartPoints={annotationStartPoints} annotationBox={annotationBox}/>
-        }
+
+      {showAnnotationCommentBox && (
+        <CommentBox
+          text={text}
+          handleBlur={handleBlur}
+          handleTextChange={handleTextChange}
+          annotationStartPoints={annotationStartPoints}
+          annotationBox={annotationBox}
+        />
+      )}
     </div>
   );
 };

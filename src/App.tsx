@@ -6,7 +6,7 @@ import { AnnotationsContextProvider } from './context/AnnotationsContextProvider
 function App() {
 
   return (
-    <div style={{width: "100vw", height:"100vh"}}>
+    <div>
       <AnnotationsContextProvider>
     <AnnotationContainer>
       <div style={{height:"300px", width:"100%", backgroundColor:"red"}}>

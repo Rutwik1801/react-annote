@@ -29,7 +29,6 @@ export const useAnnotation = () => {
   
     const handleMouseUp = () => {
       setDragStart(false);
-      // setAnnotationStartPoints(null);
       setShowAnnotationCommentBox(true)
       setShowOverlay(true)
     };
@@ -42,6 +41,7 @@ export const useAnnotation = () => {
           annotationBox,
         }
         handleAddAnnotation(annotationObject)
+        setText("")
       }
       setShowAnnotationCommentBox(false)
       setShowOverlay(false)
