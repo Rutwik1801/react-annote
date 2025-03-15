@@ -1,6 +1,6 @@
 .comment-box {
   position: absolute;
-  z-index: 2;
+  z-index: 12;
   width: 300px;
   height: 100px;
   padding: 8px;
@@ -27,6 +27,7 @@
   border-radius: 4px;
   font-size: 14px;
   outline: none;
+  letter-spacing: 2px;
   background: transparent;
 }
 
@@ -55,4 +56,16 @@
 
 .annotation-box:hover {
   box-shadow: 0 0 6px rgba(1, 11, 22, 0.3);
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 40%;
+  z-index: inherit;
+  padding: 3px 6px;
+  border-radius: 3px;
+  letter-spacing: 2px;
+  background-color: white;
+  margin-top: 5px;
 }

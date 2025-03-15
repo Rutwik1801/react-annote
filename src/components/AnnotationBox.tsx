@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { AnnotationType } from "../utils/types";
+import { Tooltip } from "./Tooltip";
 
 export const AnnotationBox:React.FC<{annotation: AnnotationType}> = ({annotation}) => {
-
+const [showTooltip, setShowTooltip] = useState<boolean>(false)
 return (<div
+onMouseOver={() => setShowTooltip(true)}
+onMouseLeave={() => setShowTooltip(false)}
 className="annotation-box"
   style={{
     zIndex: 4,
@@ -11,5 +15,7 @@ className="annotation-box"
     height: `${annotation.annotationBox?.[1]}px`,
     width: `${annotation.annotationBox?.[0]}px`,
   }}
-></div>);
+>
+  <Tooltip text={annotation.text || ""} showTooltip={showTooltip} tooltipPosition={[0,0]} />
+</div>);
 } 
