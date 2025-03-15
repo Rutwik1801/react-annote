@@ -1,5 +1,5 @@
 
-# react-beautiful-dnd
+# react-beautiful-annotation
 
 Adding annotations has never been this easy. Integrate it using one simple step.
 
