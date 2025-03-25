@@ -28,3 +28,12 @@ export type CommentBoxProps = {
   annotationBox: number[] | null,
   text: string
 }
+
+export type TooltipPosition = "bottom-center" |
+"bottom-left" |
+"bottom-right" |
+"left-center" |
+"right-center" |
+"top-center" |
+"top-left" |
+"top-right" 

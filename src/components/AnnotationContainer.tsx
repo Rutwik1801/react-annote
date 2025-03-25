@@ -10,7 +10,7 @@ export const AnnotationContainer: React.FC<React.PropsWithChildren> = (props) =>
     <div>
       <Annotation >{props.children}</Annotation>
       {annotations?.length > 0 && annotations.map((annotation: AnnotationType) => {
-        return <AnnotationBox annotation={annotation} />
+        return <AnnotationBox annotation={annotation} {...props} />
       })}
     </div>
   );
